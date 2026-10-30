@@ -14,7 +14,7 @@ for (const [relative, meta] of Object.entries(lock.packages)) {
   if (actual.version !== meta.version) throw Error(`Dependency version mismatch for ${packageRelative}`);
   receipt.packages[packageRelative] = { version: meta.version, integrity: meta.integrity };
   function walk(directory, prefix = "") {
-    for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+    for (const entry of fs.readdirSync(directory, { withFileTypes: true }).sort((a, b) => a.name < b.name ? -1 : a.name > b.name ? 1 : 0)) {
       if (entry.isSymbolicLink()) throw Error("Dependency symlinks are not bundled");
       if (packageRelative === "koilib" && !prefix && ["src", "dist"].includes(entry.name)) continue;
       if (entry.name === "node_modules" || entry.name.startsWith(".") || ["test", "tests", "__tests__", "examples", "coverage"].includes(entry.name)) continue;

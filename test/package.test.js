@@ -20,3 +20,14 @@ test("the manifest and runtime use public Foundation dependencies only", () => {
   }
   const jobEngine = fs.readFileSync(path.join(service, "runtime/engine.js"), "utf8"); assert.doesNotMatch(jobEngine, /this\.connections|this\.chats|this\.fetch|this\.store\.(search|note|remove)/);
 });
+
+test("dependency receipt is independent of filesystem enumeration order", t => {
+  const isolated = fs.mkdtempSync(path.join(os.tmpdir(), "kai-plugin-build-order-")); t.after(() => fs.rmSync(isolated, { recursive: true, force: true }));
+  fs.mkdirSync(path.join(isolated, "scripts"));
+  fs.copyFileSync(path.join(root, "scripts/build-dependencies.js"), path.join(isolated, "scripts/build-dependencies.js"));
+  fs.copyFileSync(path.join(root, "package-lock.json"), path.join(isolated, "package-lock.json"));
+  const preload = 'const fs=require("node:fs"),read=fs.readdirSync;fs.readdirSync=(...args)=>{const entries=read(...args);return Array.isArray(entries)?entries.reverse():entries};require("./scripts/build-dependencies.js")';
+  const result = spawnSync(process.execPath, ["-e", preload], { cwd: isolated, encoding: "utf8", env: { ...process.env, KAI_BUILD_DEPENDENCIES: path.join(service, "node_modules") }, timeout: 15000 });
+  assert.equal(result.status, 0, result.stderr);
+  assert.equal(fs.readFileSync(path.join(isolated, "plugin/service/dependencies.json"), "utf8"), fs.readFileSync(path.join(service, "dependencies.json"), "utf8"));
+});
