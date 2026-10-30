@@ -1,0 +1,34 @@
+{
+  "repository": "therexdev/kaiapp",
+  "commit": "34d17faa0526213b8fc0ac7a65aa7f2c186c6547",
+  "files": {
+    "agent-network.js": {
+      "source": "ui/agent-network.js",
+      "sourceSha256": "9fd232597ef32312723bd6ccc53982b5384d07826aa1820df7620e51821f601d",
+      "pluginSha256": "08d97f41df2aedf42b09d78108d486fc60377a02e89e912234c055e866f3ec62"
+    },
+    "agent-network.css": {
+      "source": "ui/agent-network.css",
+      "sourceSha256": "e38a8743e24cc089f41266ac9457cb58dc58fd408575bed39f60037670a2d790",
+      "pluginSha256": "e38a8743e24cc089f41266ac9457cb58dc58fd408575bed39f60037670a2d790"
+    },
+    "styles.css": {
+      "source": "ui/styles.css",
+      "sourceSha256": "e03b95c82b7a7d3bf3f0425be892860f277bf540c79998e8f1617e69acec8a7b",
+      "pluginSha256": "f3fe52c9fe6d99b6ce916e8d99df6828a8731b747fcde5702dbece14d9f36381"
+    },
+    "product-experience.css": {
+      "source": "ui/product-experience.css",
+      "sourceSha256": "e1a9f0061522e15d45fc256d7bfca819016f4b26b9af0d54b4c714c680b341c1",
+      "pluginSha256": "e1a9f0061522e15d45fc256d7bfca819016f4b26b9af0d54b4c714c680b341c1"
+    },
+    "workflows.css": {
+      "source": "ui/workflows.css",
+      "sourceSha256": "e2dd6e709bdbffe19b6a5a35ab3e0d1e60121219e60d5bcf050bc84bc81b5c31",
+      "pluginSha256": "e2dd6e709bdbffe19b6a5a35ab3e0d1e60121219e60d5bcf050bc84bc81b5c31"
+    }
+  },
+  "transportChanges": [
+    "agent-network.js downloads use the reviewed native save dialog"
+  ]
+}

@@ -11,6 +11,7 @@
     container.classList.add("kai-notice"); container.removeAttribute("role"); container.removeAttribute("aria-live"); container.replaceChildren(message, close);
     let current = "", dismissed = null;
     function show(value, { error = false, dismissible = true, force = false } = {}) {
+      if (message.parentNode !== container || close.parentNode !== container) container.replaceChildren(message, close);
       const content = String(value ?? ""), key = JSON.stringify([content, error, dismissible]);
       if (force || key !== current) dismissed = null;
       current = key;
