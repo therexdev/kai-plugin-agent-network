@@ -2,7 +2,7 @@
 const test = require("node:test"), assert = require("node:assert/strict"), fs = require("node:fs"), path = require("node:path"), vm = require("node:vm");
 const dir = path.join(__dirname, "../plugin"), manifest = JSON.parse(fs.readFileSync(path.join(dir, "manifest.json"), "utf8"));
 test("signed package declares the exact API 2 identity and service capabilities", () => {
-  assert.equal(manifest.schema, 1); assert.equal(manifest.apiVersion, 2); assert.equal(manifest.id, "kai.agent-network"); assert.equal(manifest.version, "0.1.0");
+  assert.equal(manifest.schema, 1); assert.equal(manifest.apiVersion, 2); assert.equal(manifest.id, "kai.agent-network"); assert.equal(manifest.version, require("../package.json").version);
   assert.deepEqual(manifest.permissions, ["models.read", "agent-network.read", "agent-network.write", "agent-network.manage", "agent-network.network"]);
   assert.ok(fs.existsSync(path.join(dir, manifest.entry)));
 });
