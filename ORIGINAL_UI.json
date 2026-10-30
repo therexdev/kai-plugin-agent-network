@@ -15,7 +15,7 @@
     "styles.css": {
       "source": "ui/styles.css",
       "sourceSha256": "e03b95c82b7a7d3bf3f0425be892860f277bf540c79998e8f1617e69acec8a7b",
-      "pluginSha256": "f3fe52c9fe6d99b6ce916e8d99df6828a8731b747fcde5702dbece14d9f36381"
+      "pluginSha256": "e03b95c82b7a7d3bf3f0425be892860f277bf540c79998e8f1617e69acec8a7b"
     },
     "product-experience.css": {
       "source": "ui/product-experience.css",
@@ -26,6 +26,11 @@
       "source": "ui/workflows.css",
       "sourceSha256": "e2dd6e709bdbffe19b6a5a35ab3e0d1e60121219e60d5bcf050bc84bc81b5c31",
       "pluginSha256": "e2dd6e709bdbffe19b6a5a35ab3e0d1e60121219e60d5bcf050bc84bc81b5c31"
+    },
+    "brain.css": {
+      "source": "ui/brain.css",
+      "sourceSha256": "084ed7d301ddd684761867396446cbbb41e19f5d34f4212cbe7625e81d8f4c67",
+      "pluginSha256": "084ed7d301ddd684761867396446cbbb41e19f5d34f4212cbe7625e81d8f4c67"
     }
   },
   "transportChanges": [

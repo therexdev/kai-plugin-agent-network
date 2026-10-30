@@ -1,3 +1,7 @@
+# 0.2.1
+
+Restores the original shared workspace grid and vertical section rail, with the original base styles. The content pane remains visible beside the rail in its separate window. Requires KAI Core 0.5.0 or later.
+
 # 0.2.0
 
 Restores the original Koinos AI feature interface and native capabilities in a separately installed plugin. Uses the existing shared profile and saved data. Requires KAI Core 0.5.0 or later.

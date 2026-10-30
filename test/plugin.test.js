@@ -1,6 +1,11 @@
 "use strict";
 const test = require("node:test"), assert = require("node:assert/strict"), fs = require("node:fs"), path = require("node:path"), vm = require("node:vm");
 const dir = path.join(__dirname, "../plugin"), manifest = JSON.parse(fs.readFileSync(path.join(dir, "manifest.json"), "utf8"));
+test("original base and shared rail styles match their recorded upstream assets", () => {
+  const provenance = JSON.parse(fs.readFileSync(path.join(__dirname, "../ORIGINAL_UI.json"), "utf8"));
+  for (const file of ["styles.css", "brain.css", "product-experience.css", "workflows.css", "agent-network.css"]) assert.equal(require("node:crypto").createHash("sha256").update(fs.readFileSync(path.join(dir, file))).digest("hex"), provenance.files[file].sourceSha256, file);
+  assert.match(fs.readFileSync(path.join(dir, "index.html"), "utf8"), /href="brain\.css"/);
+});
 test("full original Agent Network screens and assets are installed as a sandboxed package", () => {
   assert.equal(manifest.id, "kai.agent-network"); assert.equal(manifest.version, require("../package.json").version);
   const html = fs.readFileSync(path.join(dir, "index.html"), "utf8");
