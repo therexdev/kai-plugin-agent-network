@@ -1,0 +1,2 @@
+# Signed plugin files must retain identical bytes on every platform.
+* -text

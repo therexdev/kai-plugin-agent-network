@@ -1,3 +1,9 @@
 node_modules/
 *.pem
 .env
+# Signed runtime dependencies are publication artifacts owned by this plugin.
+!/plugin/service/node_modules/
+!/plugin/service/node_modules/**
+
+# Reassembled exactly from checked signed asset parts.
+/dist/kai-plugin-agent-network-0.3.0.kaiplugin

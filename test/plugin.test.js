@@ -16,8 +16,8 @@ test("full original Agent Network screens and assets are installed as a sandboxe
   assert.doesNotMatch(ui, /\bfetch\s*\(|XMLHttpRequest|WebSocket|\brequire\s*\(|\beval\s*\(/);
   assert.match(ui, /agentNetwork.saveFile/);
 });
-test("legacy renderer adapter preserves full original response shapes and rejects unknown actions", async () => {
-  const calls = [], window = { kai: { async call(method, input) { calls.push({ method, input }); return method.endsWith("quote") ? { id: "quote-id" } : method.endsWith("legacyWorkflowChoices") ? [{ id: "workflow", name: "Full workflow" }] : { enabled: true, agents: [{ definition: { graph: {} } }], jobs: [{ output: "result" }], activity: [] }; } } };
+test("workspace renderer adapter preserves full original response shapes and rejects unknown actions", async () => {
+  const calls = [], window = { kai: { async call(method, input) { calls.push({ method, input }); return method.endsWith("quote") ? { id: "quote-id" } : method.endsWith("workflowChoicesAll") ? [{ id: "workflow", name: "Full workflow" }] : { enabled: true, agents: [{ definition: { graph: {} } }], jobs: [{ output: "result" }], activity: [] }; } } };
   vm.runInNewContext(fs.readFileSync(path.join(dir, "bridge.js"), "utf8"), { window, document: { querySelector: () => null } });
   const status = await window.KaiCompanionClient.checked(window.kaiCompanionBridge.manage("agentNetworkStatus")); assert.equal(status.jobs[0].output, "result"); assert.ok(status.agents[0].definition.graph);
   assert.equal(await window.KaiCompanionClient.checked(window.kaiCompanionBridge.manage("agentNetworkQuote", { id: "service", input: { typed: true } })), "quote-id");

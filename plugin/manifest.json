@@ -1,16 +1,28 @@
 {
-  "schema": 1,
-  "apiVersion": 2,
+  "schema": 2,
+  "apiVersion": 3,
   "id": "kai.agent-network",
   "name": "Agent Network",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Create isolated private AI services, share signed invitations, discover configured relays, and review free service jobs. Paid rentals are not enabled.",
   "entry": "index.html",
   "permissions": [
+    "native.execute",
     "models.read",
-    "agent-network.read",
-    "agent-network.write",
-    "agent-network.manage",
-    "agent-network.network"
+    "inference.local",
+    "network.status",
+    "network.fetch",
+    "secrets.use",
+    "storage.read",
+    "storage.write",
+    "desktop.navigate",
+    "services.call",
+    "desktop.windows"
+  ],
+  "runtime": "native",
+  "service": "service/index.js",
+  "provides": [],
+  "consumes": [
+    "kai.workflows"
   ]
 }

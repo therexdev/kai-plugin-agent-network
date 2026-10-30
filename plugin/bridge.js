@@ -1,10 +1,10 @@
 "use strict";
 (() => {
-  const operations = { Status: "legacyStatus", Settings: "settings", Save: "legacySave", Accepting: "accepting", Publish: "publish", Retire: "retire", Discover: "discover", Import: "import", Quote: "quote", Submit: "submit", Job: "job", Refresh: "legacyRefresh" };
+  const operations = { Status: "workspaceStatus", Settings: "settings", Save: "workspaceSave", Accepting: "accepting", Publish: "publish", Retire: "retire", Discover: "discover", Import: "import", Quote: "quote", Submit: "submit", Job: "job", Refresh: "workspaceRefresh" };
   window.KaiCompanionClient = { checked: async result => { const value = await result; if (!value?.ok) throw Error(value?.error || "The service request failed."); return value.result; } };
   window.kaiCompanionBridge = { async manage(action, input = {}) {
     try {
-      if (action === "status") return { ok: true, result: { workflows: await window.kai.call("agentNetwork.legacyWorkflowChoices", {}) } };
+      if (action === "status") return { ok: true, result: { workflows: await window.kai.call("agentNetwork.workflowChoicesAll", {}) } };
       const operation = action.startsWith("agentNetwork") && operations[action.slice(12)];
       if (!operation) throw Error("Unknown Agent Network action.");
       let result = await window.kai.call("agentNetwork." + operation, input);
