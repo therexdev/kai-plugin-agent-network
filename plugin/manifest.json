@@ -3,7 +3,7 @@
   "apiVersion": 3,
   "id": "kai.agent-network",
   "name": "Agent Network",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Create isolated private AI services, share signed invitations, discover configured relays, and review free service jobs. Paid rentals are not enabled.",
   "entry": "index.html",
   "permissions": [

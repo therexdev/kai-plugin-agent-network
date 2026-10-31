@@ -1,0 +1,21 @@
+/* Shared visual specification, bundled independently by each plugin. */
+html,body{width:100%;height:100%;margin:0}
+body{overflow:hidden}
+body #app,body #main{width:100%;height:100%;min-height:0;margin:0;padding:0}
+body #main,.plugin-workspace{overflow:auto}
+.view.companion-hub{max-width:none;width:100%;min-height:100%;height:auto;margin:0;padding:0;overflow:visible}
+.companion-hub .hub-shell{display:grid;grid-template-columns:178px minmax(0,1fr);gap:0;align-items:stretch;min-height:100vh}
+.companion-hub .hub-rail{position:sticky;top:0;align-self:start;display:flex;flex-direction:column;gap:6px;min-height:100vh;max-height:100vh;overflow-y:auto;padding:24px 12px;border-right:1px solid #dce6f5;background:linear-gradient(180deg,#fbfdff,#f4f8ff);scrollbar-width:thin}
+.companion-hub .hub-rail-label{padding:0 10px 12px;color:#7184a0;font-size:10px;font-weight:650;letter-spacing:.1em;line-height:1.5;text-transform:uppercase}
+.companion-hub .hub-rail button{position:relative;display:block;width:100%;min-height:42px;margin:0;padding:11px 12px;border:1px solid transparent;border-radius:11px;background:transparent!important;color:#58708f!important;font-family:inherit;font-size:12px;font-weight:500;line-height:1.5;text-align:left;white-space:normal;overflow-wrap:anywhere;box-shadow:none;transition:background .15s,border-color .15s,box-shadow .15s,color .15s}
+.companion-hub .hub-rail button:hover{color:#155eef!important;border-color:#dce7fa;background:#fff!important;box-shadow:0 2px 7px #16376408}
+.companion-hub .hub-rail button.active{color:#155eef!important;font-weight:650;border-color:#cfdefb;background:linear-gradient(120deg,#e8f1ff,#f2f7ff)!important;box-shadow:0 2px 6px #155eef0a,inset 0 1px #ffffffc0}
+.companion-hub .hub-rail button:focus-visible{outline:2px solid #155eef;outline-offset:2px}
+.companion-hub .hub-content{min-width:0;padding:24px 26px 40px}
+.companion-hub>.hub-notice:not(:empty),.companion-hub>.an-notice:not(:empty){margin:14px 20px}
+.companion-hub .hub-shell:has(.wf-builder){grid-template-columns:minmax(0,1fr)}
+.companion-hub .hub-shell:has(.wf-builder)>.hub-rail{display:none}
+.companion-hub .hub-shell:has(.wf-builder)>.hub-content{padding:0}
+@media(max-width:960px){.companion-hub .hub-shell{grid-template-columns:158px minmax(0,1fr)}.companion-hub .hub-rail{padding:20px 10px}.companion-hub .hub-content{padding:20px}}
+@media(max-width:600px){.companion-hub .hub-shell{grid-template-columns:minmax(0,1fr);min-height:0}.companion-hub .hub-rail{position:static;flex-direction:row;flex-wrap:wrap;min-height:0;max-height:none;overflow:visible;padding:12px;border-right:0;border-bottom:1px solid #dce6f5;gap:6px}.companion-hub .hub-rail-label{width:100%;padding:0 4px 4px}.companion-hub .hub-rail button{width:auto;min-height:38px;padding:8px 11px;font-size:12px}.companion-hub .hub-content{padding:18px 14px 30px}}
+@media(prefers-reduced-motion:reduce){.companion-hub .hub-rail button{transition:none}}

@@ -1,0 +1,23 @@
+{
+  "format": 1,
+  "asset": "kai-plugin-agent-network-0.3.1.kaiplugin",
+  "bytes": 17858390,
+  "sha256": "220353f05c0fd0b90123b1c87d24437c0a94172f71f70da2b301f48f8d058d44",
+  "parts": [
+    {
+      "file": "kai-plugin-agent-network-0.3.1.kaiplugin.part001",
+      "bytes": 8388608,
+      "sha256": "c7f9ef4cdf33f7d57aeb8389fd0b474824593211d1d782e1efe120ede0a87a27"
+    },
+    {
+      "file": "kai-plugin-agent-network-0.3.1.kaiplugin.part002",
+      "bytes": 8388608,
+      "sha256": "3cda784b76d91cd3e1a237501cd8bec2f7e056a0a7eacf99f98e0d537f7d1cb4"
+    },
+    {
+      "file": "kai-plugin-agent-network-0.3.1.kaiplugin.part003",
+      "bytes": 1081174,
+      "sha256": "5e090eda6ed502a7190fd8fe93f626ad1dd49f3686747dfc5eab973e6dfd2df3"
+    }
+  ]
+}
