@@ -45,3 +45,7 @@ Pack the complete plugin using Core's `scripts/core/pack-plugin.js`, keeping the
 CI tests source on `foundation-v1`, pull requests and `main` on Windows, macOS and Linux. It checks any signed asset present for the current version. Publication runs only from `main`, only when that exact signed asset exists, and only after every check passes. Existing release assets must match byte-for-byte and are never overwritten. Branch builds cannot publish releases. Native device/integration checks remain necessary before a release; unit tests do not replace them.
 
 The signed 0.3.0 package is stored in exact byte parts to keep GitHub uploads bounded. Run `node scripts/assemble-signed-package.js` before `node scripts/verify-package.js`; assembly checks each part and the complete SHA-256 without creating or changing a signature.
+
+## Interface language
+
+This plugin follows the language saved in KAI Core Settings and applies changes to open views. English, Spanish, Brazilian Portuguese, French and German are supported through bundled offline catalogs. User content and identifiers stay literal. These source changes require Core 0.7.17+ for the live locale API; release the Core update before publishing a new signed plugin package and catalog entry. See the [public localization API](https://github.com/therexdev/kai-core/blob/main/docs/foundation/PLUGIN_AUTHOR_GUIDE.md#shared-language-and-localization-core-0717).

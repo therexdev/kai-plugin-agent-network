@@ -1,5 +1,5 @@
 {
-  "lockSha256": "ee69d668713034e4a0a25465448cafde11e3b3fbf6b9527711134845e45cfed2",
+  "lockSha256": "7d89f73fad98ed3d01d11205f7aec31ff6e13d37e766f5b99e776bbe8946581f",
   "packages": {
     "@jitl/quickjs-ffi-types": {
       "version": "0.32.0",
