@@ -1,11 +1,12 @@
 {
   "name": "kai-plugin-agent-network",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "private": true,
   "license": "MIT",
   "scripts": {
     "test": "node --test test/*.test.js",
-    "build": "node scripts/build-dependencies.js"
+    "build": "node scripts/build-dependencies.js",
+    "build:locales": "node scripts/build-locales.js"
   },
   "dependencies": {
     "koilib": "9.4.0",

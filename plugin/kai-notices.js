@@ -6,7 +6,7 @@
     const document = container.ownerDocument, initial = container.textContent;
     const message = document.createElement("span"), close = document.createElement("button"), symbol = document.createElement("span");
     message.className = "kai-notice-text"; message.setAttribute("role", "status"); message.setAttribute("aria-atomic", "true");
-    close.className = "kai-notice-close"; close.type = "button"; close.title = "Dismiss message"; close.setAttribute("aria-label", "Dismiss message");
+    close.className = "kai-notice-close"; close.type = "button"; KaiI18n.setAttr(close, "title", "Dismiss message"); KaiI18n.setAttr(close, "aria-label", "Dismiss message");
     symbol.textContent = "×"; symbol.setAttribute("aria-hidden", "true"); close.append(symbol);
     container.classList.add("kai-notice"); container.removeAttribute("role"); container.removeAttribute("aria-live"); container.replaceChildren(message, close);
     let current = "", dismissed = null;
